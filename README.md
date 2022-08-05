@@ -4,7 +4,7 @@
 - 3.) Download the code .
 - 4.) Open your terminal in the directory an type
 - ## npm i
-- 5.)make sure add .env file and put necessory credencial for now.
+- 5.)make sure add .env file and put necessory credencial for now. variable names are written in the top of main app.js file.
 - 6.) Start your mongodb server. go to the directory and type
 - ## node app 
 - 7.) Go to your browser and type in this

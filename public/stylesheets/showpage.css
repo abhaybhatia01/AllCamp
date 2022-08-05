@@ -188,3 +188,20 @@
       display: none;
     }
   }
+
+
+
+
+
+
+
+  #menu {
+    position: absolute;
+    background: #efefef;
+    padding: 0.5rem;
+    font-family: 'Open Sans', sans-serif;
+    }
+    label{
+      font-size: small;
+    }
+

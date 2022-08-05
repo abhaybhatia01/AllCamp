@@ -3,7 +3,7 @@ if(process.env.NODE_ENV !=="production"){
    
  }
 
-
+// these are the  variables of env file.
 // console.log(process.env.CLOUDINARY_CLOUD_NAME)
 // console.log(process.env.CLOUDINARY_KEY)
 // console.log(process.env.CLOUDINARY_SECRET)
