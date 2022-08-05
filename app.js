@@ -7,6 +7,7 @@ if(process.env.NODE_ENV !=="production"){
 // console.log(process.env.CLOUDINARY_CLOUD_NAME)
 // console.log(process.env.CLOUDINARY_KEY)
 // console.log(process.env.CLOUDINARY_SECRET)
+// console.log(process.env.MAPBOX_TOKEN)
 
 const express = require('express');
 const path = require('path');
