@@ -4,8 +4,9 @@
 - 3.) Download the code .
 - 4.) Open your terminal in the directory an type
 - ## npm i
-- 5.) Start your mongodb server. go to the directory and type
+- 5.)make sure add .env file and put necessory credencial for now.
+- 6.) Start your mongodb server. go to the directory and type
 - ## node app 
-- 6.) Go to your browser and type in this
+- 7.) Go to your browser and type in this
 - ## localhost:3000
-- 7.) You are good to go.
+- 8.) You are good to go.
