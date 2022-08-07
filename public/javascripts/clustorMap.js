@@ -5,7 +5,7 @@
         style: 'mapbox://styles/mapbox/light-v10',
         center: [-103.5917, 40.6699],
         zoom: 3,
-        pitch: 45, // pitch in degrees
+        pitch: 25, // pitch in degrees
    
 
     });
