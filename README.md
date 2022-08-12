@@ -43,7 +43,7 @@
 ### Clone or download this repository
 
 ```sh
-git clone https://github.com/abhaybhatia01/allcamp.git
+git clone https://github.com/abhaybhatia01/AllCamp.git
 ```
 
 ### Install dependencies
