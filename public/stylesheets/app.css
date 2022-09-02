@@ -6,3 +6,10 @@
     width:100%;
     height:300px;
 }
+
+.nav-login:hover{
+    color: green;
+}
+.nav-register:hover{
+    color: red;
+}

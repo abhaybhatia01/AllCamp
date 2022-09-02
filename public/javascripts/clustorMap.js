@@ -3,9 +3,10 @@
     const map = new mapboxgl.Map({
         container: 'cluster-map',
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-103.5917, 40.6699],
-        zoom: 3,
-        pitch: 25, // pitch in degrees
+        center: [79, 21],
+        zoom: 4,
+        
+        pitch: 65, // pitch in degrees
    
 
     });
