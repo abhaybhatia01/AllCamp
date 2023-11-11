@@ -6,6 +6,7 @@ if(process.env.NODE_ENV !=="production"){
 
 const express = require('express');
 const path = require('path');
+
 const mongoose=require('mongoose');
 const ejsMate =require('ejs-mate');
 const session = require('express-session');
@@ -17,7 +18,7 @@ const localStrategy = require('passport-local');
 const User = require('./models/user')
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet')
-
+const fs = require('fs')
 
 const campgroundRoutes =require('./routes/campgrounds');
 const reviewRoutes =require('./routes/reviews');
@@ -152,7 +153,50 @@ app.use((req,res,next)=>{
    next();
 })
 
+// performance logs stuff
+const logDir = path.join(__dirname, "/logs");
+const logFile = path.join(logDir, "perf.log.csv");
 
+// Setup logfile
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir, { recursive: true });
+}
+if (!fs.existsSync(logFile)) {
+  fs.writeFileSync(logFile, "time,url,dcl,load,fcp,lcp,cls,fid\n", { flag: "wx" });
+}
+// write log file
+app.post("/api/perf",express.json({ type: "*/*" }),(req, res) => {
+    const now = new Date().getTime() / 1000;
+    const record = `${now},${req.body.url},${req.body.dcl},${req.body.load},${req.body.fcp},${req.body.lcp},${req.body.cls},${req.body.fid}`;
+    console.log(record);
+    
+    // // Check if the file exists
+    // if (fs.existsSync(logFile)) {
+    //     // Read the file contents
+    //     fs.readFile(logFile, 'utf8', (err, data) => {
+    //         if (err) {
+    //             console.error('Error reading the file:', err);
+    //         } else {
+    //             console.log('File contents:');
+    //             console.log(logFile)
+    //             console.log(data);
+    //         }
+    //     });
+    // } else {
+    //     console.error('File not found:', logFile);
+    // }
+
+    fs.appendFile(logFile, `${record}\n`, (err) => {
+      if (err) {
+        console.error(err);
+        res.sendStatus(500);
+      }
+      else {
+        res.sendStatus(200);
+      }
+    });
+  })
+  
 
 app.use('/',userRoutes)
 app.use('/campgrounds',campgroundRoutes)
@@ -161,6 +205,7 @@ app.use('/campgrounds/:id/reviews',reviewRoutes)
 app.get('/',(req,res)=>{
     res.render('home')
 })
+
 
 
 app.all('*', (req,res,next)=>{
