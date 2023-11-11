@@ -128,6 +128,7 @@ app.use(
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
+            frameAncestors: ["'self'", "https://abhaybhatia01.github.io/","https://abhaybhatia.me"],
         },
     })
 );
