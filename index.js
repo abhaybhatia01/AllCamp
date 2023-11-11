@@ -128,7 +128,7 @@ app.use(
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
-            frameAncestors: ["'self'", "https://abhaybhatia01.github.io/","https://abhaybhatia.me"],
+            frameAncestors: ["'self'", "https://abhaybhatia01.github.io/","https://abhaybhatia.me","http://127.0.0.1:5500/"],
         },
     })
 );
