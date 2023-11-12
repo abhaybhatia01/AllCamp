@@ -2,12 +2,12 @@
 	mapboxgl.accessToken = mapToken;
     const map = new mapboxgl.Map({
         container: 'cluster-map',
-        style: 'mapbox://styles/mapbox/light-v10',
+        style: 'mapbox://styles/mapbox/satellite-streets-v12',
         center: [79, 21],
-        zoom: 4,
+        zoom: 3,
         
-        pitch: 65, // pitch in degrees
-   
+        pitch: 40, // pitch in degrees
+        projection: 'globe'
 
     });
 
@@ -51,7 +51,7 @@
                     10,
                     '#0288D1',
                     30,
-                    '#01579B'
+                    '#01579c'
                 ],
                 'circle-radius': [
                     'step',

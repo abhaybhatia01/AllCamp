@@ -1,40 +1,49 @@
 <% layout('layout/boilerplate') -%> 
 
-
-<!-- map thingy -->
-<div id="cluster-map" "></div>
-
-
-<h1>All Campgrounds</h1>
-<div>
-    <a class="btn btn-primary mb-1" href="/campgrounds/new">Add Campground</a>
-</div>
+<div >
     
-    <% for (let campground of campgrounds ) { %>
-        <div class="card mb-3">
-            <div class="row">
-                <div class="col-md-4">
-                    <% if(campground.images.length){ %> 
-                    <img src="<%= campground.images[0].url %> " class="img-fluid" alt="">
-                    <% }else {%> 
-                            <img class="img-fluid" src="https://res.cloudinary.com/dxbvukq5a/image/upload/v1659693996/AllCamp/viipjvkppy85njbcktke.jpg" alt="">
-                        <% } %> 
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= campground.title %> 
-                        </h5>
-                        <p class="card-text"> <%= campground.description  %> </p>
-                        <p class="card-text"> 
-                            <small class="text-muted"> <%= campground.location  %> </small>
-                        </p>
-                        <a href="campgrounds/<%=campground.id %> " class="btn btn-primary">View <%= campground.title %> </a>
+    <!-- map thingy -->
+    <div class="bg-dark" id="cluster-map" "></div>
+
+    <div class="container text-center   p-3 ">
+        <div class="row  index-buttons">
+            <div class="col">
+                <a class="btn  shadow mb-1" href="#first"> All Campgrounds</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-secondary shadow mb-1" href="/campgrounds/new">Add Campground</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="first ">
+        <% for (let campground of campgrounds ) { %>
+            <div class="card shadow mb-3">
+                <div class="row">
+                    <div class="col-md-5 img-container">
+                        <% if(campground.images.length){ %> 
+                        <img src="<%= campground.images[0].url %> " class=" " alt="">
+                        <% }else {%> 
+                                <img class=" " src="https://res.cloudinary.com/dxbvukq5a/image/upload/v1659693996/AllCamp/viipjvkppy85njbcktke.jpg" alt="">
+                            <% } %> 
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= campground.title %> 
+                            </h5>
+                            <p class="card-text discription"> <%= campground.description  %> </p>
+                            <p class="card-text"> 
+                                <small class="text-muted"> <%= campground.location  %> </small>
+                            </p>
+                            <a href="campgrounds/<%=campground.id %> " class="btn btn-primary shadow">View <%= campground.title %> </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <%  } %> 
+        <%  } %>
+    </div> 
+</div>
     <script>
     const mapToken ='<%-process.env.MAPBOX_TOKEN%>';
     const campgrounds = {features: <%-JSON.stringify(campgrounds) %>}

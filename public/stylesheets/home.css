@@ -34,3 +34,46 @@ body {
     color: #333;
     text-shadow: none;
 }
+
+@media (width<500px) {
+    .nav-link {
+        padding: 0.15rem 0;
+        font-size: 0.7rem;
+        margin-left: 0.8rem;
+    }
+    .cover-container {
+        max-width: 90vw;
+      }
+    .lead{
+        font-size: 0.8rem;
+    }
+    #center-login, #main-button{
+        font-size: 0.8rem;
+        margin-bottom: 3px;
+    }
+    .px-3 h1{
+        font-size: 1.4rem;
+    }
+    footer p{
+        font-size: 0.7rem;
+    }
+}
+.main-button-pulse{
+    animation: myAnim 2s ease 0s infinite normal forwards;
+}
+@keyframes myAnim {
+	0%{
+        opacity: 1;
+
+    }
+
+
+	33% {
+        opacity: 0.70;
+
+	}
+
+    66% {
+        opacity: 1;
+	}
+}

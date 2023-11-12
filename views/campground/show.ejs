@@ -4,7 +4,7 @@
   <!-- showing the campground data -->
 
   <div class="row">
-    <div class="col-6 ">
+    <div class="col-12 col-md-11 col-lg-6 mx-auto mx-lg-0">
       <div id="campgroundCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
         <%campground.images.forEach((img,i)=>{ %> 
@@ -25,11 +25,11 @@
         </a>
         <% } %> 
       </div>
-      <div class="card mb-3">
+      <div class="card mb-3 mt-2">
 
         <div class="card-body">
           <h5 class="card-title"><%= campground.title %></h5>
-          <p class="card-text"><%= campground.description %></p>
+          <p class="card-text discription"><%= campground.description %></p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item text-muted"><%= campground.location %></li>
@@ -45,84 +45,96 @@
           </form>
         </div>
         <% } %> 
-        <div class="card-footer text-muted">2 days ago</div>
+        <div class="card-footer text-muted">a year ago</div>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-md-10 col-lg-6 mx-auto mx-lg-0 map-review">
 
-
-      <!-- map thingy -->
-       <div id='map'></div>
-        
-<div id="menu">
-  <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
-  <label for="satellite-v9">satellite</label>
-  <input id="light-v10" type="radio" name="rtoggle" value="light">
-  <label for="light-v10">light</label>
-  <input id="dark-v10" type="radio" name="rtoggle" value="dark">
-  <label for="dark-v10">dark</label>
-  <input id="streets-v11" type="radio" name="rtoggle" value="streets">
-  <label for="streets-v11">streets</label>
-  <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
-  <label for="outdoors-v11">outdoors</label>
-  </div>
+      <div class=" col-lg-12">
+        <!-- map thingy -->
+        <div class="mt-2 mb-1 " id='map'></div>       
+        <div id="menu">
+          <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
+          <label for="satellite-v9">satellite</label>
+          <input id="light-v10" type="radio" name="rtoggle" value="light">
+          <label for="light-v10">light</label>
+          <input id="dark-v10" type="radio" name="rtoggle" value="dark">
+          <label for="dark-v10">dark</label>
+          <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+          <label for="streets-v11">streets</label>
+          <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
+          <label for="outdoors-v11">outdoors</label>
+        </div>
+      </div>
+      
 
        <!-- form to submit  review -->
-
-      <% if(currentUser) {%> 
-      <h2 class="mt-5">Leave a Review</h2>
-      <form action="/campgrounds/<%=campground.id%>/reviews" method="POST" class="mb-3 needs-validation" novalidate>
-        <!-- <div class="mb-3">
-          <label class="form-label" for="rating">Rating</label>
-          <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="review">
-        </div> -->
-        <div class="mb-1">
-        <fieldset class="starability-basic">
-          <input type="radio" id="no-rate" class="input-no-rate " name="review[rating]" value="0" checked aria-label="No rating." />
-          <input type="radio" id="first-rate1" name="review[rating]" value="1" />
-          <label for="first-rate1" title="Terrible">1 star</label>
-          <input type="radio" id="first-rate2" name="review[rating]" value="2" />
-          <label for="first-rate2" title="Not good">2 stars</label>
-          <input type="radio" id="first-rate3" name="review[rating]" value="3" />
-          <label for="first-rate3" title="Average">3 stars</label>
-          <input type="radio" id="first-rate4" name="review[rating]" value="4" />
-          <label for="first-rate4" title="Very good">4 stars</label>
-          <input type="radio" id="first-rate5" name="review[rating]" value="5" />
-          <label for="first-rate5" title="Amazing">5 stars</label>
-        </fieldset>
-      </div>
-
-        <div class="mb-3">
-          <label class="form-label" for="body">Review Text</label>
-          <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
-          <div class="valid-feedback">looks good!</div>
+      <div class=" col-lg-12 mt-5 mt-lg-2 ">
+        <% if(currentUser) {%> 
+          <h2 class="mt-5 pt-3 pt-md-0">Leave a Review</h2>
+          <form action="/campgrounds/<%=campground.id%>/reviews" method="POST" class="mb-3 needs-validation" novalidate>
+            <!-- <div class="mb-3">
+              <label class="form-label" for="rating">Rating</label>
+              <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="review">
+            </div> -->
+            <div class="mb-1">
+              <fieldset class="starability-basic">
+                <input type="radio" id="no-rate" class="input-no-rate " name="review[rating]" value="0" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset>
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label" for="body">Review Text</label>
+              <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+              <div class="valid-feedback">looks good!</div>
+            </div>
+            <button class="btn btn-success"> submit</button>
+          </form>
+        <% } %> 
+  
+  
+        <!-- rendering reviews -->
+  
+        <div class=" reviews mt-md-2  mt-lg-5 ">
+          <h3>Reviews</h3>
+          <% for (let review of campground.reviews) {%>
+            <div class="card mb-3 review">
+              <div class=" card-body">
+                <div class=" review-title">
+                  <div class="review-user-wrapper">
+                    <h5 class="card-title review-user">
+                      <%= review.author.username %>
+                    </h5>
+                  </div>
+                    <span class="starability-result" data-rating="<%= review.rating %>">
+                      Rated: <%= review.rating %> stars
+                    </span>
+                </div>
+               
+                <!-- <h6 class="card-subtitle mb-2 text-muted">by <%= review.author.username%> </h6> -->
+                <p class="card-text"><span style="color: rgb(163, 90, 231); font-weight: 700;" class="bold">: <%= review.body %></span> <span class="text-muted">- a year ago</span></p>
+    
+                <!-- hiding delete button for others -->
+                <% if(currentUser && review.author.equals(currentUser)) {%> 
+                <form action="/campgrounds/<%= campground.id %>/reviews/<%=review.id%>?_method=DELETE" method ="POST">
+                  <button class=" btn btn-sm btn-danger">Delete</button>
+                </form>
+                <% } %> 
+              </div>
+            </div>
+          <% } %>
         </div>
-        <button class="btn btn-success"> submit</button>
-      </form>
-      <% } %> 
-
-
-      <!-- rendering reviews -->
-
-      <% for (let review of campground.reviews) {%>
-        <div class="card mb-3">
-          <div class=" card-body">
-            <h5 class="card-title"><%= review.author.username %></h5>
-            <p class="starability-result" data-rating="<%= review.rating %>">
-              Rated: <%= review.rating %> stars
-            </p>
-            <!-- <h6 class="card-subtitle mb-2 text-muted">by <%= review.author.username%> </h6> -->
-            <p class="card-text">Review: <%= review.body %></p>
-
-            <!-- hiding delete button for others -->
-            <% if(currentUser && review.author.equals(currentUser)) {%> 
-            <form action="/campgrounds/<%= campground.id %>/reviews/<%=review.id%>?_method=DELETE" method ="POST">
-              <button class=" btn btn-sm btn-danger">Delete</button>
-            </form>
-            <% } %> 
-          </div>
-        </div>
-        <% } %>
+      </div>  
     </div>
   </div>
 

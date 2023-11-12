@@ -44,8 +44,13 @@ const CampgroundSchema =new mongoose.Schema({
 },opts);
 
 CampgroundSchema.virtual('properties.popUpMarkup').get(function(){
-    return `<strong><a href="/campgrounds/${this._id}"> ${this.title} </a></strong>
-    <p>${this.description.substring(0,20)}...`
+    return `
+    <div class="custom-popup"> 
+        <a href="/campgrounds/${this._id}"> 
+            <img defer class="img-fluid" src=${this.images[0].url}>
+            <strong> ${this.title} </strong>
+        </a>
+    <p style="font-size:10px; line-height: 0.7rem;">${this.description.substring(0,100)}...</p></div>`
  })
 
 CampgroundSchema.post("findOneAndDelete", async function (doc){
